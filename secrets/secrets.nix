@@ -1,11 +1,10 @@
 let
-  ksevelyar = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrgLo+NfYI06fdY1BamC5o2tNeRlw1ZuPAkyy41w0Ir";
-  users = [ksevelyar];
+  kavarkon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUKrA0XuY+OiXWlDctkApwtFhawDpaHQdEXW/5DTmxw kavarkon@baton";
+  users = [kavarkon];
 
   # ssh-keyscan -p 9922 localhost
-  cluster-0 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAl7A0q+qLbbQ8rdlX2XyHQ0xM9PqOa7i26HoMw8q9BS";
-  systems = [cluster-0];
+  artist = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJkHIWlcQNGtO10cISM+Z4FXBJBNBzX0DbCG/zbrE7qq";
+  systems = [artist];
 in {
-  "db-habits.age".publicKeys = users ++ systems;
-  "habits-phoenix.age".publicKeys = users ++ systems;
+  "tasks-api.age".publicKeys = users ++ systems;
 }

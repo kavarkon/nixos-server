@@ -19,6 +19,10 @@
     ../services/databases/postgresql.nix
   ];
 
+  age.secrets.tasks-api = {
+    file = ../secrets/tasks-api.age;
+  };
+
   boot.loader.grub = {
     # no need to set devices, disko will add all devices that have a EF02 partition to the list already
     # devices = [ ];
@@ -77,7 +81,7 @@
         useDHCP = false;
         ipv4.addresses = [
           {
-            address = "212.109.193.139";
+            address = "212.109.195.195";
             prefixLength = 32;
           }
         ];
@@ -110,6 +114,18 @@
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       '';
+    };
+  };
+
+  virtualisation.oci-containers = {
+    containers = {
+      tasks-api = {
+        image = "kavarkon/tasks-api:latest";
+        autoStart = true;
+        extraOptions = ["--network=host"];
+        ports = ["8080:8080"];
+        environmentFiles = [config.age.secrets.tasks-api.path];
+      };
     };
   };
 }

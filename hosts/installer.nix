@@ -34,7 +34,7 @@
     bat
   ];
 
-  users.users.ksevelyar = {
+  users.users.kavarkon = {
     isNormalUser = true;
 
     extraGroups = [
@@ -42,7 +42,7 @@
     ];
 
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrgLo+NfYI06fdY1BamC5o2tNeRlw1ZuPAkyy41w0Ir ksevelyar@gmail.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUKrA0XuY+OiXWlDctkApwtFhawDpaHQdEXW/5DTmxw kavarkon@baton"
     ];
 
     initialHashedPassword = "$y$j9T$H52H7Xta1XhESYb2vE07C/$diE1gF.OIIOCBo6jzKATasjiKwXKhbLCEWmJd.PBZM1";
@@ -51,7 +51,7 @@
   users.users = {
     root = {
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrgLo+NfYI06fdY1BamC5o2tNeRlw1ZuPAkyy41w0Ir ksevelyar@gmail.com"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUKrA0XuY+OiXWlDctkApwtFhawDpaHQdEXW/5DTmxw kavarkon@baton"
       ];
     };
   };
@@ -62,13 +62,13 @@
   # sudo ip route add default via 10.0.0.1 dev ens3
   networking = {
     useDHCP = false;
-    hostName = "cluster-0";
+    hostName = "installer";
     interfaces = {
       ens3 = {
         useDHCP = false;
         ipv4.addresses = [
           {
-            address = "212.109.193.139";
+            address = "212.109.195.195";
             prefixLength = 32;
           }
         ];
