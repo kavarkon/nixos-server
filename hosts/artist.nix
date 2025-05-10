@@ -110,9 +110,8 @@
     locations."/" = {
       proxyPass = "http://localhost:8080";
       extraConfig = ''
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        error_log  /var/log/nginx/tasks-api-error.log;
+        access_log /var/log/nginx/tasks-api-access.log;
       '';
     };
   };
