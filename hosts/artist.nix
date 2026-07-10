@@ -103,7 +103,7 @@
   documentation.nixos.enable = false;
 
   # apps
-  services.nginx.virtualHosts."api.tasks.kavarkon.ru" = {
+  services.nginx.virtualHosts."https://todo.jailbreak-projects.ru" = {
     forceSSL = true;
     enableACME = true;
 
