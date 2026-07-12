@@ -1,6 +1,6 @@
 {
   disko.devices.disk.main = {
-    device = "/dev/vda";
+    device = "/dev/sda";
     type = "disk";
     content = {
       type = "gpt";
@@ -9,15 +9,6 @@
           name = "boot";
           size = "1M";
           type = "EF02";
-        };
-        ESP = {
-          type = "EF00";
-          size = "500M";
-          content = {
-            type = "filesystem";
-            format = "vfat";
-            mountpoint = "/boot";
-          };
         };
         root = {
           size = "100%";
